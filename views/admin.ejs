@@ -1,0 +1,39 @@
+<%- include('./partials/header', {title, userConnected}); %>
+
+
+<div id="wrap">
+    <%   for (aLocation of allPlaces){    %>
+            <div id="place">
+            <%  if (aLocation.validated === false){  %>
+                <div id="nameAndAdsecription">
+
+
+                  <h3 ><a href="location/allPlaces/<%=aLocation.nom%>"><%= aLocation.nom %></a> </h3>
+                  <p><%= aLocation.description %></p>
+
+                  <form method="POST" action="/admin/<%=aLocation.nom %>?_method=PUT">
+
+                      <label ">Valider</label><br>
+                      <input type="submit">
+
+                  </form>
+
+                  <br>
+                  <br>
+                  <form method="POST" action="/admin/<%=aLocation.nom %>?_method=DELETE">
+                      <label ">Supprimer</label><br>
+                      <input type="submit">
+                  </form>
+
+              </div>
+              <div>
+                  <p ><img src="<%=aLocation.image %>"  id="imageOfLocation" ></p>
+              </div>
+         <%     }    %>
+
+
+            </div>
+    <% } %>
+    </div>
+</body>
+</html>

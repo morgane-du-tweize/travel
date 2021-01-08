@@ -1,0 +1,22 @@
+
+    <%- include('./partials/header', {title, userConnected}); %>
+
+<div>
+    <h1>Liste des utilisateurs :</h1>
+
+    <table>
+
+        <% for (let i = 0 ; i < things.length ; i++) { %>
+            <tr>
+                <td>firstname : <%= things[i].firstname %> </td>
+                <td>lastname : <%= things[i].lastname %></td>
+                <td>email : <%= things[i].email%></td>
+            </tr>
+        <%  } %>
+
+    </table>
+
+    
+</div>
+
+<%- include('./partials/footer'); %>

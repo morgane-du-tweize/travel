@@ -1,0 +1,53 @@
+
+  <%- include('./partials/header', {title, userConnected}); %>
+  
+  <body>
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+
+
+
+      <div>
+          <h2>All locations</h2>
+
+          <div>
+            <h3 class="section-heading text-uppercase">Search for any location</h3>
+
+                    <!-- formulaire où on tape le nom du film à rechercher-->
+                    <form id="searchLocation" >
+                      <input type="text" class="form-control" id="nameOfLocation" placeholder="Search any location">
+                      <input type="submit" value="nameOfLocation">
+                     </form>
+
+                    <!-- le résultat de la recherche doit s'afficher dans ce paragraphe-->
+                    <div >
+                        <ul id="locationFound"></ul>
+                    </div>
+          </div>
+
+          <div>
+            <ul id="searchResult"></ul>
+          </div>
+
+          <div id="wrap">
+          <%   for (aLocation of allPlaces){    %>
+            <%  if (aLocation.validated === true){   %>
+                <div id="place">
+
+                  <div id="nameAndAdsecription">
+                      <h3 ><a href="location/allPlaces/<%=aLocation.nom %>"><%= aLocation.nom %></a> </h3>
+                      <p><%=  aLocation.description %></p>     
+                  </div>
+                  <div>
+                      <p ><img src="<%=aLocation.image %>"  id="imageOfLocation" ></p>
+                  </div>
+            </div>
+            <%    }
+
+           } %>
+          </div>
+
+      </div>
+
+
+  </body>

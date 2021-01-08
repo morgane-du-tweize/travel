@@ -1,0 +1,86 @@
+
+  <%- include('./partials/header', {title, userConnected}); %>
+
+  <body>
+
+      <nav>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Retour vers l'accueil</a></li>
+
+      </nav>
+
+      <div>
+          <h1 id="placeName"><%= oneLocation.nom %></h1>
+          <p><%= oneLocation.description %></p>
+          <p><img src="<%=oneLocation.image %>"></p>
+          <h3>Nombre de likes :</h3>
+          <p><%= oneLocation.likes.length %></p>
+      </div>
+
+      <div>
+          <h3>Vos commentaires</h3>
+          <div id="listOfComments"></ul>
+          <%  if (allComments.length == 0){   %>
+            <p>Il n'y a aucun commentaire, soyez le premier à commenter</p>
+
+          <%  }
+
+          else {   %>
+            
+            <%  for (let oneComment = 0 ;oneComment < allComments.length ; oneComment++) {    %>
+                
+                    <p>Auteur du commentaire :  <%= allComments[oneComment].userName %></p>
+                    <br>
+                    <p>Date : <%= allComments[oneComment].date %></p>
+                    <br>
+                    <p><%= allComments[oneComment].Comment %></p>
+                    <br>
+                    <hr>
+                
+            <%   }   %>
+            
+        <%  }   %>
+            </div>
+      </div>
+
+
+        <%  if (userConnected){  
+          %>
+          <div >
+              <p class="hidden" id="userName"><%= nameOfUser %></p>
+              
+              <p class="hidden" id="userID"><%= userID %></p>
+              <form method="POST" action="/location/newComment" id="formComments">
+                  <div>
+
+                    <textarea rows="10" cols="50" name="commentaryOfPlace" id="commentaryOfPlace" required></textarea>
+                </div>
+                      
+                <div>
+                    <input type="submit" value="Envoyer" id="submit_button" class="soumettre">
+                </div>
+            </form>
+            <br>
+            <br>
+           <% if (hasAlreadyVoted == false){    %>
+              <h5>Tu aimes cet endroit ?</h5>
+
+                          <form method="POST" action="/location/like" id="newLike">
+                            <input type="button" id="like" class ="like" name="like" value="like" /><label for="like" ></label>
+                          </form>
+
+            <%  }      %>
+    
+          </div>
+        <%   }   %>
+
+        <%  if (numberOfLikes == 0){  %>
+          <p id="numberOfLikes">Soyez le premier à recommander cet endroit !</p>
+        <%  }
+        else {    %>
+          <p id="numberOfLikes"><%= numberOfLikes %></p>
+        <%  }    %>
+ 
+  </body>
+
+</html>
+

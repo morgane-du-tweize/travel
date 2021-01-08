@@ -1,0 +1,28 @@
+<%- include('./partials/header', {title, userConnected}); %>
+
+<h1>Nouveau lieu</h1>
+<p>Veuillez remplir le formulaire</p>
+
+<form method="POST" action="/location/newLocation" enctype="multipart/form-data">
+
+    <div >
+        <label for="nameOfLocation">Nom du lieu*</label><br>
+        <input type="text" id="nameOfLocation" name="nameOfLocation" class="champ_contact_form" required><br>
+    </div>
+
+    <div>
+        <label for="descriptionOfLocation">Message *</label><br>
+        <textarea rows="6" cols="50" name="descriptionOfLocation" id="descriptionOfLocation" required>Description du lieu</textarea>
+    </div>
+
+    <div>
+        <input type="file" name="imageOfLocation" id="imageOfLocation" accept="image/*" required>
+    </div>
+
+    <div>
+        <input type="submit" value="Envoyer" id="submit_button" class="soumettre">
+    </div>
+
+</form>
+
+

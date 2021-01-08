@@ -1,0 +1,30 @@
+
+<%- include('./partials/header', {title, userConnected}); %>
+
+<div>
+    <form method="POST" action="/users/login">
+        <div>
+            <label for="email">Adresse mail *</label><br>
+            <input type="email" id="email" name="email" required><br>
+        </div>
+        
+        <div>
+            <label for="password">Mot de passe</label><br>
+            <input id="password" type="password" name="password" autocomplete="off" required><br>
+        </div>
+    
+        <div>
+            <input type="submit" value="Envoyer" id="submit_button" class="soumettre">
+        </div>
+    
+    </form>
+</div>
+
+<div class="nouveau">
+    <h3>
+        <a href="/users/signup">Utilisateur non enregistré : veuillez vous inscrire</a>
+    </h3>
+</div>
+
+<%- include('./partials/footer'); %>
+

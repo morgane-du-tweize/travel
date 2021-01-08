@@ -1,0 +1,46 @@
+
+ <%- include('./partials/header', {title, userConnected}); %> 
+
+<h1><%= title %></h1> 
+ 
+<table>
+    <tr>
+        <td>Nom de l'utilisateur :</td>
+        <td>Prénom de l'utilisateur :</td>
+        <td>Adresse email de l'utilisateur :</td>
+    </tr>
+
+    <tr>
+        <td><%=thing.lastname %></td>
+        <td><%=thing.firstname %></td>
+        <td><%=thing.email %></td>
+    </tr>
+
+</table>
+
+<form method="POST" action="/users/newFirstName">
+    <div>
+        <label for="newFirstName">Nouveau prénom</label><br>
+        <input type="text" id="newFirstName" name="newFirstName"><br>
+        <input type="submit" value="Envoyer" id="submit_button" class="soumettre">
+    </div>
+</form>
+
+<form method="POST" action="/users/newLastName">
+    <div>
+        <label for="newLastName">Nouveau nom</label><br>
+        <input type="text" id="newLastName" name="newLastName"><br>
+        <input type="submit" value="Envoyer" id="submit_button" class="soumettre">
+    </div>
+</form>
+
+<form method="POST" action="/users/newPassword">
+    <div>
+        <label for="newPassword">Nouveau mot de passe</label><br>
+        <input type="text" id="newPassword" name="newPassword"><br>
+        <input type="submit" value="Envoyer" id="submit_button" class="soumettre">
+    </div>
+</form>
+
+
+<%- include('./partials/footer'); %>
